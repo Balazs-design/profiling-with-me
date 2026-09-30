@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="hu" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profiling &amp; Coaching | Kiss Mercédesz – Profiling with Me</title>
+    <meta name="description" content="Önismereti személyiségelemzés (3–4 hetes online folyamat, 59 000 Ft) és megoldásorientált coaching folyamat, online vagy személyesen.">
+    <link rel="icon" href="profiling-with-me-logo.png" type="image/png">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            deep: '#16262A',
+                            petrol: '#3C5C63',
+                            mist: '#9DB7BC',
+                            paper: '#F3ECE1',
+                            accent: '#BD7F92',
+                            cream: '#F8F4EC',
+                            ink: '#22322F',
+                            blossom: '#EBD3D8'
+                        }
+                    },
+                    fontFamily: {
+                        h1: ['"DM Sans"', 'sans-serif'],
+                        h2: ['"Lora"', 'serif'],
+                        body: ['"Inter"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #16262A;
+            color: #F8F4EC;
+        }
+        h1, h2, .font-h1 { font-family: 'DM Sans', sans-serif; }
+        h2, .font-h2 { font-family: 'Lora', serif; }
+
+        .hero-wash {
+            background: radial-gradient(ellipse 90% 60% at 30% 0%, #2C464C 0%, #16262A 65%);
+        }
+        .divider {
+            background: linear-gradient(to right, transparent, rgba(248,244,236,0.14), transparent);
+        }
+        .prose-pwm p { margin-bottom: 1.15rem; }
+        .prose-pwm p:last-child { margin-bottom: 0; }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #16262A; }
+        ::-webkit-scrollbar-thumb { background: #3C5C63; border-radius: 4px; }
+
+        #stickyCta { transform: translateY(120%); transition: transform 0.35s ease; }
+        #stickyCta.visible { transform: translateY(0); }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-accent selection:text-white">
+
+    <!-- Sticky Navigation -->
+    <header class="sticky top-0 z-50 w-full border-b border-brand-ink/10 bg-brand-blossom text-brand-ink shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-6">
+
+            <a href="index.html" class="flex items-center gap-3 shrink-0">
+                <img src="profiling-with-me-logo.png" alt="Profiling with Me logó" class="w-10 h-10 rounded-full object-cover shrink-0">
+                <div class="flex flex-col leading-none">
+                    <span class="font-h1 tracking-wide text-sm font-bold uppercase">Profiling with Me</span>
+                    <span class="text-[10px] tracking-widest text-brand-petrol font-body uppercase mt-0.5">Kiss Mercédesz</span>
+                </div>
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-6 xl:gap-8 font-body text-xs tracking-wide text-brand-ink/75">
+                <a href="index.html" class="hover:text-brand-accent transition-colors">Főoldal</a>
+                <a href="rolam.html" class="hover:text-brand-accent transition-colors">Rólam</a>
+                <a href="profiling-coaching.html" class="text-brand-accent font-semibold" aria-current="page">Profiling &amp; Coaching</a>
+                <a href="masszazs.html" class="hover:text-brand-accent transition-colors">Body &amp; Coaching masszázs</a>
+                <a href="arak.html" class="hover:text-brand-accent transition-colors">Árak</a>
+            </nav>
+
+            <div class="hidden lg:flex items-center shrink-0">
+                <button onclick="openBookingModal()" class="px-5 py-2 rounded-full font-body text-xs tracking-wide font-semibold bg-brand-ink text-brand-cream hover:bg-brand-petrol transition-colors">
+                    Időpontfoglalás
+                </button>
+            </div>
+
+            <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden text-brand-ink p-2" aria-label="Navigációs menü">
+                <i class="fa-solid fa-bars text-lg"></i>
+            </button>
+        </div>
+
+        <div id="mobileMenu" class="hidden lg:hidden bg-brand-blossom border-b border-brand-ink/10 px-6 py-4">
+            <div class="flex flex-col gap-1 font-body text-xs font-medium text-brand-ink uppercase tracking-wider">
+                <a href="index.html" class="py-2 border-b border-brand-ink/5 ">Főoldal</a>
+                <a href="rolam.html" class="py-2 border-b border-brand-ink/5 ">Rólam</a>
+                <a href="profiling-coaching.html" class="py-2 border-b border-brand-ink/5 text-brand-accent">Profiling &amp; Coaching</a>
+                <a href="masszazs.html" class="py-2 border-b border-brand-ink/5 ">Body &amp; Coaching masszázs</a>
+                <a href="arak.html" class="py-2 border-b border-brand-ink/5 ">Árak</a>
+                <button onclick="toggleMobileMenu(); openBookingModal()" class="mt-3 w-full py-2.5 rounded-full font-body text-xs uppercase tracking-wider font-semibold bg-brand-ink text-white">
+                    Időpontfoglalás
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="bg-brand-deep border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <p class="font-body text-[11px] text-white/40 tracking-wide">
+                <a href="index.html" class="hover:text-brand-mist transition-colors">Főoldal</a>
+                <span class="mx-1.5">/</span>
+                <span class="text-brand-mist">Profiling &amp; Coaching</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero-wash relative overflow-hidden py-16 lg:py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7">
+                <span class="font-body text-xs tracking-[0.2em] uppercase text-brand-mist">Profiling &amp; Coaching</span>
+                <h1 class="font-h1 text-3xl sm:text-4xl lg:text-[2.6rem] font-medium text-white leading-[1.25] mt-4 mb-6">
+                    Ismerd meg a mozgatórugóidat – és dolgozzunk együtt a <span class="font-h2 italic font-normal">változáson</span>.
+                </h1>
+                <p class="font-h2 text-base sm:text-lg text-brand-cream/80 italic leading-relaxed mb-9">
+                    Önismereti személyiségelemzés és megoldásorientált coaching: választhatod külön-külön, vagy egymásra építve.
+                </p>
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                    <button onclick="openBookingModal('Ingyenes online konzultáció')" class="px-6 py-3 rounded-full font-body font-semibold text-xs tracking-widest uppercase bg-brand-accent text-white hover:bg-[#a76c80] transition-colors">
+                        Ingyenes konzultációt kérek
+                    </button>
+                    <a href="#profilozas" class="px-6 py-3 rounded-full font-body font-medium text-xs tracking-widest uppercase text-brand-cream border border-white/20 hover:border-white/50 transition-colors text-center">
+                        Részletek
+                    </a>
+                </div>
+            </div>
+            <div class="lg:col-span-5"><figure class="relative aspect-[4/3] lg:aspect-[4/5] rounded-lg overflow-hidden border border-white/10 bg-gradient-to-br from-brand-petrol/60 to-brand-deep ">
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-center gap-2 p-4 text-white/35">
+                        <i class="fa-regular fa-image text-2xl"></i>
+                        <span class="font-body text-[10px] uppercase tracking-[0.2em]">Kép helye</span>
+                        <span class="font-body text-[11px] text-brand-mist/70">kepek/profilozas-hero.jpg</span>
+                    </div>
+                    <img src="kepek/profilozas-hero.jpg" alt="Profiling &amp; Coaching hangulatkép" loading="lazy" class="absolute inset-0 w-full h-full object-cover" onerror="this.remove()">
+                </figure></div>
+        </div>
+    </section>
+
+    <section class="bg-brand-petrol py-16 lg:py-20 border-b border-white/5 scroll-mt-16">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-xl mb-10">
+                <span class="font-body text-xs tracking-[0.2em] uppercase text-brand-accent">Két módszer, egymásra építve</span>
+                <h2 class="font-h1 text-2xl sm:text-3xl font-semibold text-white mt-3">Mi a különbség?</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <a href="#profilozas" class="group block bg-white/5 border border-white/10 hover:border-brand-accent/60 rounded-lg p-7 transition-colors">
+                    <span class="font-h2 text-2xl italic text-brand-accent">01</span>
+                    <h3 class="font-h1 text-lg font-semibold text-white mt-2">Profiling with Me</h3>
+                    <p class="font-body text-[11px] uppercase tracking-wider text-brand-mist mt-1 mb-4">Önismereti személyiségelemzés</p>
+                    <p class="font-body text-sm text-white/70 leading-relaxed mb-4">Feltárjuk a legfőbb mozgatórugóidat, gátjaidat, képességeidet – egy szuper kiindulási alap.</p>
+                    <ul class="font-body text-xs text-white/80 space-y-1.5 mb-5"><li class="flex items-center gap-2"><i class="fa-solid fa-circle text-[5px] text-brand-accent"></i>3–4 hetes folyamat, online</li><li class="flex items-center gap-2"><i class="fa-solid fa-circle text-[5px] text-brand-accent"></i>Tesztek, kérdések, heti e-mailes kapcsolat</li><li class="flex items-center gap-2"><i class="fa-solid fa-circle text-[5px] text-brand-accent"></i>Írásos elemzés a végén</li><li class="flex items-center gap-2"><i class="fa-solid fa-circle text-[5px] text-brand-accent"></i>59 000 Ft · ajándékutalványként is</li></ul>
+                    <span class="font-body text-xs font-semibold text-white group-hover:text-brand-accent transition-colors">Részletek <i class="fa-solid fa-arrow-down ml-1 text-[10px]"></i></span>
+                </a>
+                <a href="#coaching" class="group block bg-white/5 border border-white/10 hover:border-brand-accent/60 rounded-lg p-7 transition-colors">
+                    <span class="font-h2 text-2xl italic text-brand-accent">02</span>
+                    <h3 class="font-h1 text-lg font-semibold text-white mt-2">Coaching folyamat</h3>
+                    <p class="font-body text-[11px] uppercase tracking-wider text-brand-mist mt-1 mb-4">Megoldásorientált változás</p>
+                    <p class="font-body text-sm text-white/70 leading-relaxed mb-4">Az elemzéssel feltártakat megdolgozzuk, és beépítjük a változáshoz szükséges nézőpontokat, szokásokat.</p>
+                    <ul class="font-body text-xs text-white/80 space-y-1.5 mb-5"><li class="flex items-center gap-2"><i class="fa-solid fa-circle text-[5px] text-brand-accent"></i>Heti alkalmak, online vagy személyesen</li><li class="flex items-center gap-2"><i class="fa-solid fa-circle text-[5px] text-brand-accent"></i>Minimum 5–10 alkalom</li><li class="flex items-center gap-2"><i class="fa-solid fa-circle text-[5px] text-brand-accent"></i>55 vagy 85 perces alkalmak</li><li class="flex items-center gap-2"><i class="fa-solid fa-circle text-[5px] text-brand-accent"></i>20 000 Ft / alkalomtól</li></ul>
+                    <span class="font-body text-xs font-semibold text-white group-hover:text-brand-accent transition-colors">Részletek <i class="fa-solid fa-arrow-down ml-1 text-[10px]"></i></span>
+                </a>
+            </div>
+            <p class="font-body text-sm text-white/65 leading-relaxed mt-8 max-w-2xl">
+                <i class="fa-solid fa-magnifying-glass text-brand-accent mr-2"></i>A személyiségelemzés után tovább mehetünk coaching folyamattal, a már megszerzett tudás birtokában – de mindkettő külön is választható.
+            </p>
+        </div>
+    </section>
+
+    <section id="profilozas" class="bg-brand-deep py-16 lg:py-20 border-b border-white/5 scroll-mt-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-xl mb-10">
+                <span class="font-body text-xs tracking-[0.2em] uppercase text-brand-accent">01 · Profiling with Me – önismereti személyiségelemzés</span>
+                <h2 class="font-h1 text-2xl sm:text-3xl lg:text-4xl font-semibold text-white mt-3">Az önismereti út tele van kételyekkel</h2>
+            </div>
+            <div class="max-w-3xl"><div class="prose-pwm font-body text-[15px] text-white/75 leading-[1.8]">
+                <p>Önismereti személyiségelemzéssel feltárjuk a legfőbb mozgatórugóidat, gátjaidat, képességeidet. Ez egy szuper kiindulási alap. Tudom, ez ismét ambivalens, viszont rengeteg kétely merül fel, és sok a bizonytalanság az önismereti út során:</p>
+            </div></div>
+            <div class="flex flex-wrap gap-2.5 my-9 max-w-4xl">
+<span class="font-h2 italic text-sm sm:text-base text-brand-cream/90 px-4 py-2 rounded-full border border-white/15 bg-white/[0.03]">Jól gondolom?</span>
+<span class="font-h2 italic text-sm sm:text-base text-brand-cream/90 px-4 py-2 rounded-full border border-white/15 bg-white/[0.03]">Jól érzem?</span>
+<span class="font-h2 italic text-sm sm:text-base text-brand-cream/90 px-4 py-2 rounded-full border border-white/15 bg-white/[0.03]">Jól látom?</span>
+<span class="font-h2 italic text-sm sm:text-base text-brand-cream/90 px-4 py-2 rounded-full border border-white/15 bg-white/[0.03]">Megtehetem?</span>
+<span class="font-h2 italic text-sm sm:text-base text-brand-cream/90 px-4 py-2 rounded-full border border-white/15 bg-white/[0.03]">Mondhatok nemet bárkinek?</span>
+<span class="font-h2 italic text-sm sm:text-base text-brand-cream/90 px-4 py-2 rounded-full border border-white/15 bg-white/[0.03]">A családtagoknak is?</span>
+<span class="font-h2 italic text-sm sm:text-base text-brand-cream/90 px-4 py-2 rounded-full border border-white/15 bg-white/[0.03]">Csinálhatom azt, amit akarok?</span>
+<span class="font-h2 italic text-sm sm:text-base text-brand-cream/90 px-4 py-2 rounded-full border border-white/15 bg-white/[0.03]">Lehet olyan munkám, amit szeretek?</span>
+<span class="font-h2 italic text-sm sm:text-base text-brand-cream/90 px-4 py-2 rounded-full border border-white/15 bg-white/[0.03]">Nekem is sikerülhet az, ami másnak?</span>
+<span class="font-h2 italic text-sm sm:text-base text-brand-cream/90 px-4 py-2 rounded-full border border-white/15 bg-white/[0.03]">Lesz valaha ideális párkapcsolatom?</span>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+                <div class="lg:col-span-7">
+                    
+                    <div class="prose-pwm font-body text-[15px] text-white/75 leading-[1.8]">
+                <p>Mélyen tudhatjuk az igazságainkat, de a bizonytalanság általában túlharsogja és elnyomja őket.</p>
+                <p>Nos, az ilyen kételyek az elemzés során javarészt eloszlanak, és körvonalazódnak a dolgaink. Lesz egy alap, amellyel el lehet indulni kétségek nélkül. Ezt el lehet könyvelni időspórolásnak is: <strong class="text-white font-semibold">ez lesz a te gyorsítósávod az önismereti utadon.</strong></p>
+            </div>
+                </div>
+                <div class="lg:col-span-5 lg:sticky lg:top-24 lg:order-first">
+                    <figure class="relative aspect-[4/3] rounded-lg overflow-hidden border border-white/10 bg-gradient-to-br from-brand-petrol/60 to-brand-deep ">
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-center gap-2 p-4 text-white/35">
+                        <i class="fa-regular fa-image text-2xl"></i>
+                        <span class="font-body text-[10px] uppercase tracking-[0.2em]">Kép helye</span>
+                        <span class="font-body text-[11px] text-brand-mist/70">kepek/profilozas-1.jpg</span>
+                    </div>
+                    <img src="kepek/profilozas-1.jpg" alt="Hangulatkép: tisztánlátás, jegyzetek" loading="lazy" class="absolute inset-0 w-full h-full object-cover" onerror="this.remove()">
+                </figure>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hogyan" class="bg-brand-petrol py-16 lg:py-20 border-b border-white/5 scroll-mt-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-xl mb-10">
+                <span class="font-body text-xs tracking-[0.2em] uppercase text-brand-accent">Hogyan működik a profilozás?</span>
+                <h2 class="font-h1 text-2xl sm:text-3xl lg:text-4xl font-semibold text-white mt-3">Egy hónapos, közös folyamat</h2>
+            </div>
+            <p class="font-body text-[15px] text-white/75 leading-[1.8] max-w-2xl mb-14">
+                Az elemzésed egy hónapot is felölelhet. Mindenképp folyamatban gondolkodj: időt hagyok neked, hogy kényelmesen válaszolhass, és nekem is idő kell, hogy alapos elemzést készíthessek.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-x-8 gap-y-10">
+                <div class="md:border-t md:border-white/10 md:pt-6">
+                    <span class="font-h2 text-2xl italic text-brand-accent">01</span>
+                    <h3 class="font-h1 text-base font-semibold text-white mt-2 mb-2">Online konzultáció</h3>
+                    <p class="font-body text-xs text-white/70 leading-relaxed">Elsőként online találkozunk, megismerjük egymást és a kérdéseidet.</p>
+                </div>
+                <div class="md:border-t md:border-white/10 md:pt-6">
+                    <span class="font-h2 text-2xl italic text-brand-accent">02</span>
+                    <h3 class="font-h1 text-base font-semibold text-white mt-2 mb-2">Tesztek &amp; kérdések</h3>
+                    <p class="font-body text-xs text-white/70 leading-relaxed">Teszteket töltesz ki, és személyre szabott kérdéseket állítok össze neked.</p>
+                </div>
+                <div class="md:border-t md:border-white/10 md:pt-6">
+                    <span class="font-h2 text-2xl italic text-brand-accent">03</span>
+                    <h3 class="font-h1 text-base font-semibold text-white mt-2 mb-2">Heti kapcsolat</h3>
+                    <p class="font-body text-xs text-white/70 leading-relaxed">E-mailben folyamatosan, hétről hétre tartjuk a kapcsolatot.</p>
+                </div>
+                <div class="md:border-t md:border-white/10 md:pt-6">
+                    <span class="font-h2 text-2xl italic text-brand-accent">04</span>
+                    <h3 class="font-h1 text-base font-semibold text-white mt-2 mb-2">Záró konzultáció</h3>
+                    <p class="font-body text-xs text-white/70 leading-relaxed">A folyamat ismét egy online konzultációval zárul.</p>
+                </div>
+                <div class="md:border-t md:border-white/10 md:pt-6">
+                    <span class="font-h2 text-2xl italic text-brand-accent">05</span>
+                    <h3 class="font-h1 text-base font-semibold text-white mt-2 mb-2">Írásos elemzés</h3>
+                    <p class="font-body text-xs text-white/70 leading-relaxed">Összeállítom az elemzésed, amit e-mailben kapsz meg – bármikor újraolvashatod.</p>
+                </div>
+            </div>
+            <div class="mt-14 max-w-2xl bg-white/5 border border-white/10 rounded-lg p-6">
+                <p class="font-body text-sm text-white/75 leading-relaxed">
+                    <i class="fa-solid fa-magnifying-glass text-brand-accent mr-2"></i>
+                    Bármely kibillenés, bizonytalanság esetén újraolvashatod az elemzésed – segítség lesz az utadon. Utána tovább mehetünk <a href="#coaching" class="text-white underline decoration-brand-accent underline-offset-4 hover:text-brand-accent">coaching folyamattal</a>, és 5–10 alkalom erejéig dolgozunk tovább a kérdéseiden, a már megszerzett tudás birtokában. Természetesen dönthetsz úgy is, hogy az elemzéseddel te haladsz tovább más irányba, más úton, más módszerrel.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-brand-deep py-16 lg:py-20 border-b border-white/5 scroll-mt-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div>
+                <span class="font-body text-xs tracking-[0.2em] uppercase text-brand-accent">A személyiségelemzés neked szól, ha…</span>
+                <h2 class="font-h1 text-2xl sm:text-3xl font-semibold text-white mt-3 mb-8">Kíváncsivá tett önmagad felfedezése</h2>
+                <div class="grid grid-cols-1  gap-x-8 gap-y-4">
+                <div class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-brand-accent text-sm mt-1"></i>
+                    <p class="font-body text-sm text-white/75 leading-relaxed">Érdekel, mi az a potenciál, ami rejtve, de benned van.</p>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-brand-accent text-sm mt-1"></i>
+                    <p class="font-body text-sm text-white/75 leading-relaxed">Változtatnál a valóságodon, csak nem tudod, hol kezdj neki, merre indulj.</p>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-brand-accent text-sm mt-1"></i>
+                    <p class="font-body text-sm text-white/75 leading-relaxed">Összecsaptak a fejed felett a hullámok, tele vagy kérdőjelekkel, konkrét kérdéseid vannak.</p>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-brand-accent text-sm mt-1"></i>
+                    <p class="font-body text-sm text-white/75 leading-relaxed">Beleragadtál egy helyzetbe, kapcsolatba, és nem tudsz továbblépni.</p>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-brand-accent text-sm mt-1"></i>
+                    <p class="font-body text-sm text-white/75 leading-relaxed">Járható ösvényt keresel, mert amit eddig találtál, nem működött.</p>
+                </div>
+            </div>
+            </div>
+            <div class="lg:pt-6">
+                
+            <div class="bg-white/5 border border-white/10 rounded-lg p-7">
+                <h3 class="font-h1 text-lg font-semibold text-white">Személyiségelemzés</h3>
+                <p class="font-body text-[11px] text-brand-mist mt-1 mb-5">3–4 hetes folyamat · online</p>
+                <div>
+                    <div class="flex items-baseline justify-between gap-4 py-2.5 border-b border-white/10">
+                        <span class="font-body text-sm text-white/70">Profiling with Me személyiségelemzés</span>
+                        <span class="font-h1 text-sm font-semibold text-white whitespace-nowrap">59 000 Ft</span>
+                    </div>
+                </div>
+                <div class="mt-6 flex items-start gap-3 bg-brand-accent/10 border border-brand-accent/30 rounded-lg p-4">
+                    <i class="fa-solid fa-gift text-brand-accent mt-0.5"></i>
+                    <div>
+                        <p class="font-h1 text-sm font-semibold text-white">Ajándékutalvány – 59 000 Ft</p>
+                        <p class="font-body text-xs text-white/65 mt-1">Szuper ajándékötlet az önismeret iránt érdeklődőknek! <button onclick="openBookingModal('Személyiségelemzés ajándékutalvány')" class="underline text-brand-mist hover:text-brand-accent">Kérem az utalványt</button></p>
+                    </div>
+                </div>
+                <button onclick="openBookingModal('Személyiségelemzés (')" class="mt-7 w-full px-4 py-3 rounded-full font-body text-xs font-semibold uppercase tracking-wider bg-brand-accent text-white hover:bg-[#a76c80] transition-colors">
+                    Jelentkezem az elemzésre
+                </button>
+            </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section id="coaching" class="bg-brand-petrol py-16 lg:py-20 border-b border-white/5 scroll-mt-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+                <div class="lg:col-span-7">
+                    <span class="font-body text-xs tracking-[0.2em] uppercase text-brand-accent">02 · Coaching folyamat</span><h2 class="font-h1 text-2xl sm:text-3xl lg:text-4xl font-semibold text-white mt-3">Megoldásorientált út a változáshoz</h2><div class="h-6"></div>
+                    <div class="prose-pwm font-body text-[15px] text-white/75 leading-[1.8]">
+                <p>A következő, általam is kedvelt, nagyon széles körben használt módszer a coaching. Sokan előítélettel vannak iránta, mert könnyen elsajátítható, és már mindenki coach. (Nagyon helyes!) Viszont épp azért is kedvelt, mert a szemlélet könnyen elsajátítható, természetes és nagyon hatékony.</p>
+                <p>Vannak jobb és kevésbé jó szakemberek ezen a területen is, ez tény – mindig válasszunk körültekintően, olyat, akit hitelesnek ítélünk meg.</p>
+                <p>A coaching tökéletes eszköz számomra ahhoz is, hogy a <a href="#profilozas" class="text-white underline decoration-brand-accent underline-offset-4 hover:text-brand-accent">személyiségelemzéssel</a> feltártakat megdolgozzuk, illetve integráljuk a változáshoz szükséges nézőpontokat, szokásokat.</p>
+                <p>Ez a lehetőség utat enged annak, hogy rövidebb idő alatt is sikeresen érjünk el változásokat. Nem ad teret az önsajnálatban való dagonyázásnak, hanem teljes mértékben megoldásorientált módszer – talán ebben is rejlik a sikeressége.</p>
+            </div>
+                </div>
+                <div class="lg:col-span-5 lg:sticky lg:top-24 ">
+                    <figure class="relative aspect-[4/3] lg:aspect-[4/5] rounded-lg overflow-hidden border border-white/10 bg-gradient-to-br from-brand-petrol/60 to-brand-deep ">
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-center gap-2 p-4 text-white/35">
+                        <i class="fa-regular fa-image text-2xl"></i>
+                        <span class="font-body text-[10px] uppercase tracking-[0.2em]">Kép helye</span>
+                        <span class="font-body text-[11px] text-brand-mist/70">kepek/coaching-1.jpg</span>
+                    </div>
+                    <img src="kepek/coaching-1.jpg" alt="Coaching alkalom hangulatkép" loading="lazy" class="absolute inset-0 w-full h-full object-cover" onerror="this.remove()">
+                </figure>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-brand-deep py-16 lg:py-20 border-b border-white/5">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="font-body text-xs tracking-[0.2em] uppercase text-brand-accent text-center mb-10">A kérdések, amikkel dolgozunk</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <p class="font-h2 italic text-xl sm:text-2xl text-white">Mire vágyunk most?</p>
+                <p class="font-h2 italic text-xl sm:text-2xl text-white">Milyen lehetőségeink vannak?</p>
+                <p class="font-h2 italic text-xl sm:text-2xl text-white">Hogyan szeretnénk magunkat a jövőben definiálni?</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="coaching-arak" class="bg-brand-petrol py-16 lg:py-20 border-b border-white/5 scroll-mt-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div>
+                <span class="font-body text-xs tracking-[0.2em] uppercase text-brand-accent">Hogyan működik a coaching folyamat?</span>
+                <h2 class="font-h1 text-2xl sm:text-3xl font-semibold text-white mt-3 mb-8">Heti rendszerességgel, a te tempódban</h2>
+                <div class="grid grid-cols-1  gap-x-8 gap-y-4">
+                <div class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-brand-accent text-sm mt-1"></i>
+                    <p class="font-body text-sm text-white/75 leading-relaxed">Ha belevágsz a folyamatba, heti rendszerességgel találkozunk, online vagy személyesen.</p>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-brand-accent text-sm mt-1"></i>
+                    <p class="font-body text-sm text-white/75 leading-relaxed">Minimum 5–10 alkalom szükséges egy folyamathoz – ez függ tőled és a hozott kérdéseidtől.</p>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-brand-accent text-sm mt-1"></i>
+                    <p class="font-body text-sm text-white/75 leading-relaxed">Választhatsz 55 vagy 85 perces alkalmakat, egyenként vagy kedvezőbb 5-ös, 10-es folyamatként.</p>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-brand-accent text-sm mt-1"></i>
+                    <p class="font-body text-sm text-white/75 leading-relaxed">Előtte jelentkezz egy ingyenes, rövid konzultációra, ahol segítek eligazodni, mivel tudnánk a leghatékonyabban haladni.</p>
+                </div>
+            </div>
+            </div>
+            <div class="lg:pt-6">
+                
+            <div class="bg-white/5 border border-white/10 rounded-lg p-7">
+                <h3 class="font-h1 text-lg font-semibold text-white">Coaching árak</h3>
+                <p class="font-body text-[11px] text-brand-mist mt-1 mb-5">Online vagy személyesen</p>
+                <div>
+                    <p class="font-h1 text-sm font-semibold text-white pt-5 pb-2 first:pt-0">55 perces alkalmak</p>
+                    <div class="flex items-baseline justify-between gap-4 py-2.5 border-b border-white/10">
+                        <span class="font-body text-sm text-white/70">1 alkalom</span>
+                        <span class="font-h1 text-sm font-semibold text-white whitespace-nowrap">20 000 Ft</span>
+                    </div>
+                    <div class="flex items-baseline justify-between gap-4 py-2.5 border-b border-white/10">
+                        <span class="font-body text-sm text-white/70">5 × 55 perc</span>
+                        <span class="font-h1 text-sm font-semibold text-white whitespace-nowrap">95 000 Ft</span>
+                    </div>
+                    <div class="flex items-baseline justify-between gap-4 py-2.5 border-b border-white/10">
+                        <span class="font-body text-sm text-white/70">10 × 55 perc</span>
+                        <span class="font-h1 text-sm font-semibold text-white whitespace-nowrap">190 000 Ft</span>
+                    </div>
+                    <p class="font-h1 text-sm font-semibold text-white pt-5 pb-2 first:pt-0">85 perces alkalmak</p>
+                    <div class="flex items-baseline justify-between gap-4 py-2.5 border-b border-white/10">
+                        <span class="font-body text-sm text-white/70">1 alkalom</span>
+                        <span class="font-h1 text-sm font-semibold text-white whitespace-nowrap">30 000 Ft</span>
+                    </div>
+                    <div class="flex items-baseline justify-between gap-4 py-2.5 border-b border-white/10">
+                        <span class="font-body text-sm text-white/70">5 × 85 perc</span>
+                        <span class="font-h1 text-sm font-semibold text-white whitespace-nowrap">145 000 Ft</span>
+                    </div>
+                    <div class="flex items-baseline justify-between gap-4 py-2.5 border-b border-white/10">
+                        <span class="font-body text-sm text-white/70">10 × 85 perc</span>
+                        <span class="font-h1 text-sm font-semibold text-white whitespace-nowrap">290 000 Ft</span>
+                    </div>
+                </div>
+                
+                <button onclick="openBookingModal('Coaching folyamat')" class="mt-7 w-full px-4 py-3 rounded-full font-body text-xs font-semibold uppercase tracking-wider bg-brand-accent text-white hover:bg-[#a76c80] transition-colors">
+                    Jelentkezem a folyamatra
+                </button>
+            </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section class="bg-brand-deep py-16 lg:py-20 border-b border-white/5 scroll-mt-16">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-xl mb-10">
+                <span class="font-body text-xs tracking-[0.2em] uppercase text-brand-accent">Gyakori kérdések</span>
+                <h2 class="font-h1 text-2xl sm:text-3xl lg:text-4xl font-semibold text-white mt-3">Amit még jó tudni előtte</h2>
+            </div>
+            <div>
+                <div class="border-t border-white/10">
+                    <button onclick="toggleFaq(0)" class="w-full py-5 text-left flex items-center justify-between gap-4 font-h1 font-semibold text-white text-sm">
+                        <span>Mi a különbség a személyiségelemzés és a coaching között?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brand-accent transition-transform duration-300" id="faq-icon-0"></i>
+                    </button>
+                    <div id="faq-content-0" class="hidden pb-5 font-body text-sm text-white/70 leading-relaxed">A személyiségelemzés egy 3–4 hetes online folyamat, aminek a végén írásos elemzést kapsz a működésedről. A coaching heti rendszerességű alkalmakból áll, ahol a kérdéseiden, a változáson dolgozunk. A kettő egymásra épülhet, de külön is választható.</div>
+                </div>
+                <div class="border-t border-white/10">
+                    <button onclick="toggleFaq(1)" class="w-full py-5 text-left flex items-center justify-between gap-4 font-h1 font-semibold text-white text-sm">
+                        <span>Mennyi időt vesz igénybe egy elemzés?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brand-accent transition-transform duration-300" id="faq-icon-1"></i>
+                    </button>
+                    <div id="faq-content-1" class="hidden pb-5 font-body text-sm text-white/70 leading-relaxed">Az elemzés egy 3–4 hetes, akár egy hónapos folyamat. Időt hagyok neked, hogy kényelmesen válaszolhass, és nekem is idő kell az alapos elemzéshez.</div>
+                </div>
+                <div class="border-t border-white/10">
+                    <button onclick="toggleFaq(2)" class="w-full py-5 text-left flex items-center justify-between gap-4 font-h1 font-semibold text-white text-sm">
+                        <span>Online vagy személyesen zajlik?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brand-accent transition-transform duration-300" id="faq-icon-2"></i>
+                    </button>
+                    <div id="faq-content-2" class="hidden pb-5 font-body text-sm text-white/70 leading-relaxed">A személyiségelemzés online zajlik: online konzultációval indul és zárul, közben e-mailben tartjuk a kapcsolatot. A coaching alkalmak online vagy személyesen is lehetnek.</div>
+                </div>
+                <div class="border-t border-white/10">
+                    <button onclick="toggleFaq(3)" class="w-full py-5 text-left flex items-center justify-between gap-4 font-h1 font-semibold text-white text-sm">
+                        <span>Hány coaching alkalomra lesz szükségem?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brand-accent transition-transform duration-300" id="faq-icon-3"></i>
+                    </button>
+                    <div id="faq-content-3" class="hidden pb-5 font-body text-sm text-white/70 leading-relaxed">Minimum 5–10 alkalom szükséges egy folyamathoz – ez függ tőled és a hozott kérdéseidtől. Az ingyenes konzultáción segítek eligazodni.</div>
+                </div>
+                <div class="border-t border-white/10">
+                    <button onclick="toggleFaq(4)" class="w-full py-5 text-left flex items-center justify-between gap-4 font-h1 font-semibold text-white text-sm">
+                        <span>Ajándékba is adhatom?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brand-accent transition-transform duration-300" id="faq-icon-4"></i>
+                    </button>
+                    <div id="faq-content-4" class="hidden pb-5 font-body text-sm text-white/70 leading-relaxed">Igen! A személyiségelemzés ajándékutalvány formájában is elérhető, 59 000 Ft-ért – szuper ajándék az önismeret iránt érdeklődőknek.</div>
+                </div>
+                <div class="border-t border-b border-white/10">
+                    <button onclick="toggleFaq(5)" class="w-full py-5 text-left flex items-center justify-between gap-4 font-h1 font-semibold text-white text-sm">
+                        <span>Helyettesíti a pszichoterápiát?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brand-accent transition-transform duration-300" id="faq-icon-5"></i>
+                    </button>
+                    <div id="faq-content-5" class="hidden pb-5 font-body text-sm text-white/70 leading-relaxed">Nem. A profilozás és a coaching a jelenlegi működésed megértését és a változást támogatja. Ha akut lelki válságban vagy, pszichoterápiás vagy orvosi segítséget javaslok.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="hero-wash py-20 border-t border-white/10 text-center">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-h1 text-2xl sm:text-3xl lg:text-4xl font-semibold text-white leading-tight mb-5">
+                Készen állsz, hogy végre értsd, mi mozgat téged?
+            </h2>
+            <p class="font-h2 text-base text-brand-cream/80 italic mb-9">
+                Nem tudod, melyikkel kezdd? Beszéljük meg egy rövid, ingyenes online konzultáción.
+            </p>
+            <button onclick="openBookingModal('Ingyenes online konzultáció')" class="px-8 py-3.5 rounded-full font-body font-bold text-xs tracking-widest uppercase bg-brand-accent text-white hover:bg-[#a76c80] transition-colors">
+                Ingyenes konzultációt kérek
+            </button>
+        </div>
+    </section>
+
+    <!-- Sticky mobile CTA -->
+    <div id="stickyCta" class="fixed bottom-0 inset-x-0 z-40 lg:hidden bg-brand-deep/95 backdrop-blur-sm border-t border-white/10 px-4 py-3 flex items-center justify-between gap-3">
+        <span class="font-body text-[11px] text-white/80 leading-tight">Nem tudod, hol kezdj bele? Beszéljünk!</span>
+        <button onclick="openBookingModal()" class="shrink-0 px-4 py-2 rounded-full font-body text-[11px] font-semibold uppercase tracking-wide bg-brand-accent text-white">
+            Jelentkezem
+        </button>
+    </div>
+
+    <!-- Jelentkezés / kapcsolat modal – e-mailt nyit előre kitöltve -->
+    <div id="bookingModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/60 backdrop-blur-sm" onclick="if(event.target===this)closeBookingModal()">
+        <div class="relative bg-brand-deep border border-white/15 rounded-2xl p-6 max-w-md w-full shadow-2xl max-h-[92vh] overflow-y-auto">
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-white/60 hover:text-white text-lg p-1" aria-label="Bezárás">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="mb-5 pr-6">
+                <h3 class="font-h1 text-lg font-bold text-white">Jelentkezés</h3>
+                <p class="font-h2 text-xs text-brand-cream/70 italic mt-1">Írd meg, mi foglalkoztat – hamarosan válaszolok, és egyeztetünk egy időpontot.</p>
+            </div>
+
+            <form id="bookingForm" onsubmit="handleFormSubmit(event)" class="space-y-3 font-body text-xs">
+                <div>
+                    <label for="f-name" class="block uppercase text-white/60 mb-1 font-semibold text-[10px] tracking-wider">Neved</label>
+                    <input id="f-name" type="text" required placeholder="Teljes név" class="w-full px-3.5 py-2.5 rounded-lg bg-white/5 border border-white/15 text-white placeholder-white/30 focus:outline-none focus:border-brand-accent">
+                </div>
+                <div>
+                    <label for="f-phone" class="block uppercase text-white/60 mb-1 font-semibold text-[10px] tracking-wider">Telefonszám <span class="normal-case tracking-normal text-white/35">(nem kötelező)</span></label>
+                    <input id="f-phone" type="tel" placeholder="+36 ..." class="w-full px-3.5 py-2.5 rounded-lg bg-white/5 border border-white/15 text-white placeholder-white/30 focus:outline-none focus:border-brand-accent">
+                </div>
+                <div>
+                    <label for="f-service" class="block uppercase text-white/60 mb-1 font-semibold text-[10px] tracking-wider">Mi érdekel?</label>
+                    <select id="f-service" class="w-full px-3.5 py-2.5 rounded-lg bg-[#1D3236] border border-white/15 text-white focus:outline-none focus:border-brand-accent">
+                        <option>Ingyenes online konzultáció</option>
+                        <option>Személyiségelemzés (Profiling with Me)</option>
+                        <option>Személyiségelemzés ajándékutalvány</option>
+                        <option>Coaching folyamat</option>
+                        <option>Body &amp; Coaching masszázs</option>
+                        <option>Komplex önismereti csomag</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="f-msg" class="block uppercase text-white/60 mb-1 font-semibold text-[10px] tracking-wider">Üzenet <span class="normal-case tracking-normal text-white/35">(nem kötelező)</span></label>
+                    <textarea id="f-msg" rows="3" placeholder="Pár szóban, mi foglalkoztat most..." class="w-full px-3.5 py-2.5 rounded-lg bg-white/5 border border-white/15 text-white placeholder-white/30 focus:outline-none focus:border-brand-accent resize-none"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-3 mt-2 rounded-lg font-semibold uppercase tracking-wider text-[11px] bg-brand-accent text-white hover:bg-[#a76c80] transition-colors">
+                    <i class="fa-regular fa-envelope mr-1.5"></i> E-mail megírása
+                </button>
+                <p class="text-[10px] text-white/40 text-center leading-relaxed">
+                    A gomb megnyitja a leveleződet egy előre kitöltött üzenettel.<br>
+                    Vagy írj közvetlenül: <a href="mailto:pelda@email.hu" class="text-brand-mist underline">pelda@email.hu</a>
+                </p>
+            </form>
+
+            <!-- Amíg nincs időpontfoglaló: ez jelenik meg az űrlap helyett -->
+            <div id="comingSoon" class="hidden text-center py-6">
+                <i class="fa-regular fa-calendar-check text-3xl text-brand-accent mb-3"></i>
+                <p class="font-h1 font-bold text-white text-base">Az online időpontfoglalás hamarosan indul!</p>
+                <p class="font-h2 italic text-sm text-brand-cream/70 mt-2 mb-5 leading-relaxed">Már dolgozunk rajta – nézz vissza nemsokára.</p>
+                <button onclick="closeBookingModal()" class="px-5 py-2 rounded-full bg-white/10 text-white text-xs hover:bg-white/20 transition-colors">Bezárás</button>
+            </div>
+
+            <div id="modalSuccess" class="hidden text-center py-6">
+                <i class="fa-solid fa-circle-check text-3xl text-brand-accent mb-2"></i>
+                <p class="font-h1 font-bold text-white text-sm">Már csak el kell küldened!</p>
+                <p class="font-body text-xs text-white/70 mt-1 mb-4 leading-relaxed">Megnyílt a leveleződ az előre kitöltött üzenettel.<br>Ha nem nyílt meg, írj ide: <a href="mailto:pelda@email.hu" class="text-brand-mist underline">pelda@email.hu</a></p>
+                <button onclick="closeBookingModal()" class="px-4 py-1.5 rounded-full bg-white/10 text-white text-xs hover:bg-white/20 transition-colors">Bezárás</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-[#0F1B1D] border-t border-white/10 pt-12 pb-6 font-body">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 pb-10">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="profiling-with-me-logo.png" alt="" class="w-10 h-10 rounded-full object-cover">
+                        <div class="leading-none">
+                            <p class="font-h1 text-sm font-bold uppercase tracking-wide text-white">Profiling with Me</p>
+                            <p class="text-[10px] tracking-widest text-brand-mist uppercase mt-1">Kiss Mercédesz</p>
+                        </div>
+                    </div>
+                    <p class="font-h2 italic text-sm text-white/55 leading-relaxed">Profiling &amp; Coaching<br>Body &amp; Coaching masszázs</p>
+                </div>
+                <div>
+                    <p class="text-[10px] uppercase tracking-[0.2em] text-brand-accent mb-4">Oldalak</p>
+                    <ul class="grid grid-cols-2 sm:grid-cols-1 gap-2 text-xs text-white/60">
+                        <li><a href="index.html" class="hover:text-brand-accent transition-colors">Főoldal</a></li>
+                        <li><a href="rolam.html" class="hover:text-brand-accent transition-colors">Rólam</a></li>
+                        <li><a href="profiling-coaching.html" class="hover:text-brand-accent transition-colors">Profiling &amp; Coaching</a></li>
+                        <li><a href="masszazs.html" class="hover:text-brand-accent transition-colors">Body &amp; Coaching masszázs</a></li>
+                        <li><a href="arak.html" class="hover:text-brand-accent transition-colors">Árak</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="text-[10px] uppercase tracking-[0.2em] text-brand-accent mb-4">Kapcsolat</p>
+                    <p class="text-xs text-white/60 leading-relaxed mb-3">Online és személyes alkalmak.<br>Ingyenes, rövid online konzultáció.</p>
+                    <a href="mailto:pelda@email.hu" class="text-xs text-brand-mist hover:text-brand-accent transition-colors"><i class="fa-regular fa-envelope mr-1.5"></i>pelda@email.hu</a>
+                    <div class="mt-5">
+                        <button onclick="openBookingModal()" class="px-5 py-2 rounded-full text-[11px] font-semibold uppercase tracking-wider bg-brand-accent text-white hover:bg-[#a76c80] transition-colors">Jelentkezem</button>
+                    </div>
+                </div>
+            </div>
+            <div class="divider h-px"></div>
+            <p class="text-center text-[11px] text-white/35 pt-5">&copy; 2026 Profiling with Me – Kiss Mercédesz. Minden jog fenntartva.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ▼ Ide írd Mercédesz e-mail címét – erre érkeznek a jelentkezések
+        const CONTACT_EMAIL = 'pelda@email.hu';
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+
+        // ▼ Időpontfoglalás kapcsoló: false = "hamarosan" üzenet, true = működő jelentkezési űrlap
+        const BOOKING_ENABLED = false;
+
+        function openBookingModal(service) {
+            const modal = document.getElementById('bookingModal');
+            document.getElementById('bookingForm').classList.toggle('hidden', !BOOKING_ENABLED);
+            document.getElementById('comingSoon').classList.toggle('hidden', BOOKING_ENABLED);
+            modal.querySelector('.mb-5.pr-6').classList.toggle('hidden', !BOOKING_ENABLED);
+            if (service) {
+                const sel = document.getElementById('f-service');
+                const opt = Array.from(sel.options).find(o => o.text.startsWith(service));
+                if (opt) sel.value = opt.value;
+            }
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeBookingModal() {
+            const modal = document.getElementById('bookingModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            setTimeout(() => {
+                const form = document.getElementById('bookingForm');
+                form.classList.remove('hidden');
+                form.reset();
+                document.getElementById('modalSuccess').classList.add('hidden');
+            }, 200);
+        }
+
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeBookingModal(); });
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('f-name').value.trim();
+            const phone = document.getElementById('f-phone').value.trim();
+            const service = document.getElementById('f-service').value;
+            const msg = document.getElementById('f-msg').value.trim();
+            const subject = 'Jelentkezés: ' + service + ' – ' + name;
+            const body = 'Kedves Mercédesz!\n\n'
+                + 'Jelentkezni szeretnék: ' + service + '\n'
+                + (phone ? 'Telefonszámom: ' + phone + '\n' : '')
+                + (msg ? '\n' + msg + '\n' : '')
+                + '\nÜdvözlettel:\n' + name;
+            window.location.href = 'mailto:' + CONTACT_EMAIL
+                + '?subject=' + encodeURIComponent(subject)
+                + '&body=' + encodeURIComponent(body);
+            document.getElementById('bookingForm').classList.add('hidden');
+            document.getElementById('modalSuccess').classList.remove('hidden');
+        }
+
+        function toggleFaq(index) {
+            const content = document.getElementById('faq-content-' + index);
+            const icon = document.getElementById('faq-icon-' + index);
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // Sticky mobile CTA – a hero után jelenik meg
+        (function () {
+            const bar = document.getElementById('stickyCta');
+            const trigger = window.innerHeight * 0.7;
+            window.addEventListener('scroll', () => {
+                bar.classList.toggle('visible', window.scrollY > trigger);
+            }, { passive: true });
+        })();
+    </script>
+</body>
+</html>
